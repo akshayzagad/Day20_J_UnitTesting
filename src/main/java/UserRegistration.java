@@ -5,63 +5,63 @@ public class UserRegistration {
     static UserRegistration inputString;
 
 
-    public static boolean checkFirstName(String firstName) {
+    public  boolean checkFirstName(String firstName) throws InvalidDetailsException{
         String nameCondition = "[A-Z]{1}[a-z]{2,}";
         Pattern pattern = Pattern.compile(nameCondition);
         Matcher checkFirstNameMach = pattern.matcher(firstName);
         if (checkFirstNameMach.matches()) {
-            System.out.println("Happy Mood");
+            System.out.println("First name  is correct");
         } else {
-            System.out.println("Sad Mood");
+            throw new InvalidDetailsException("InvalidDetailsException");
         }
         return checkFirstNameMach.matches();
     }
 
-    public static boolean checkLastName(String lastName) {
+    public  boolean checkLastName(String lastName) throws InvalidDetailsException {
 
         String nameCondition = "[A-Z]{1}[a-z]{2,}";
         Pattern pattern = Pattern.compile(nameCondition);
         Matcher checkLastName = pattern.matcher(lastName);
         if (checkLastName.matches()) {
-            System.out.println("Happy Mood");
+            System.out.println("Last name  is correct");
         } else {
-            System.out.println("Sad Mood");
+           throw new InvalidDetailsException("InvalidDetailsException");
         }
         return checkLastName.matches();
     }
 
-    public static boolean checkEmail(String email) {
+    public  boolean checkEmail(String email) throws InvalidDetailsException {
         String nameCondition = "^[a-zA-Z0-9]+([._+-]*[0-9A-Za-z]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-z]{2,4})?$";
         Pattern pattern = Pattern.compile(nameCondition);
         Matcher checkEmail = pattern.matcher(email);
         if (checkEmail.matches()) {
-            System.out.println("Happy Mood");
+            System.out.println("Valid email");
         } else {
-            System.out.println("Sad Mood");
+            throw new InvalidDetailsException("InvalidDetailsException");
         }
         return checkEmail.matches();
     }
 
-    public static boolean phoneNumber(String phoneNumber) {
+    public  boolean phoneNumber(String phoneNumber) throws InvalidDetailsException {
         String nameCondition = "^(91 )[0-9]{10}$";
         Pattern pattern = Pattern.compile(nameCondition);
         Matcher checkPhoneNumber = pattern.matcher(phoneNumber);
         if (checkPhoneNumber.matches()) {
-            System.out.println("Happy Mood");
+            System.out.println("valid phone number");
         } else {
-            System.out.println("Sad Mood");
+            throw new InvalidDetailsException("InvalidDetailsException");
         }
         return checkPhoneNumber.matches();
     }
 
-    public static boolean passWord(String password) {
+    public  boolean passWord(String password)throws InvalidDetailsException {
         String nameCondition = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=[^@#$%^&*+=]*[@#$%^&*+=][^@#$%^&*+=]*$).{8,}$";
         Pattern pattern = Pattern.compile(nameCondition);
         Matcher checkPassword = pattern.matcher(password);
         if (checkPassword.matches()) {
-            System.out.println("Happy Mood");
+            System.out.println("v");
         } else {
-            System.out.println("Sad Mood");
+            throw new InvalidDetailsException("valid password number");
         }
         return checkPassword.matches();
     }
